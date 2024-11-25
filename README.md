@@ -9,9 +9,44 @@ Go routines
 Go echo system
 Cloud native 
 GC (Concurrent GC) Low Latency, concurrent GC
+General purpose statically typed programming language
 
 
 
 
 
 
+### go mod
+
+```
+go mod init demo
+```
+
+```
+go tool compile -o output.o
+```
+
+```
+go tool link -o demo output.o
+```
+
+```
+go run hello.go
+```
+
+```
+ go build -o hello1 hello.go
+ ```
+
+
+- all distributions
+
+```
+go tool dist list
+```
+
+- cross compilation and build
+
+ ```
+ GOOS=linux GOARCH=amd64 go build -o build/hello-linux-amd64.exe hello.go
+ ```
