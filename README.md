@@ -50,3 +50,7 @@ go tool dist list
  ```
  GOOS=linux GOARCH=amd64 go build -o build/hello-linux-amd64.exe hello.go
  ```
+
+ ## golang presentations link
+
+ https://docs.google.com/presentation/d/1WVvsbvgHKBrNrKtnT4XWRfrsfkNlbw5u6L9O1DeVBn0/edit?usp=sharing

@@ -47,9 +47,11 @@ func main() {
 	//3434343461
 	//3434343469
 
+	//var uintptr1 int = int(uintptr(unsafe.Pointer(&arr1[0])))
 	var uintptr1 uintptr = uintptr(unsafe.Pointer(&arr1[0]))
 	for i := 1; i < len(arr1); i++ {
-		uintptr1 += 8
+		uintptr1 += unsafe.Sizeof(&arr1[0])
+		//v := (*int)(unsafe.Pointer(uintptr(uintptr1)))
 		v := (*int)(unsafe.Pointer(uintptr1))
 		println(*v)
 	}
