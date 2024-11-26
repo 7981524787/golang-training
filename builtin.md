@@ -4,4 +4,4 @@ break,case,const,continue,default,else,fallthrough,for,func,goto,if,import,packa
 
 ## builtin
 
-conplex,len,print, println (3 of 18)
+append,cap,complex,copy,len,make,min,max,new,print,println (11 of 18)

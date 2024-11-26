@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"unsafe"
 )
@@ -57,12 +58,19 @@ func main() {
 		println(*v)
 	}
 
-	// fmt.Println("Working with any pointer")
-	// var any1 any = 100
-	// anyptr := uintptr(unsafe.Pointer(&any1))
-	// v1 := (*[6]int)(unsafe.Pointer(anyptr))
-	// (*v1)[0]
+	slice1 := []int{1, 2, 3, 4, 5}
+	Printheader(slice1, "slice1")
+	Sq(&slice1, 6, 7, 8)
+	//fmt.Println(slice1)
+	Printheader(slice1, "slice1")
 
+}
+
+func Sq(slice *[]int, nums ...int) {
+	*slice = append(*slice, nums...)
+	for i, v := range *slice {
+		(*slice)[i] = v * v
+	}
 }
 
 func Incr(n int) {
@@ -73,4 +81,12 @@ func IncrP(n *int) {
 	if n != nil {
 		*n++
 	}
+}
+
+func Printheader(slice []int, name string) error {
+	if slice == nil {
+		return errors.New("nil slice")
+	}
+	fmt.Printf("Slice:%s Address:%p Values: %v ptr:%p Len: %d Cap: %d\n", name, &slice, slice, &slice[0], len(slice), cap(slice))
+	return nil
 }
