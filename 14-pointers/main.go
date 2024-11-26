@@ -60,17 +60,41 @@ func main() {
 
 	slice1 := []int{1, 2, 3, 4, 5}
 	Printheader(slice1, "slice1")
-	Sq(&slice1, 6, 7, 8)
+	SqAndAddElems(&slice1, 6, 7, 8)
 	//fmt.Println(slice1)
 	Printheader(slice1, "slice1")
 
 }
 
-func Sq(slice *[]int, nums ...int) {
+func CheckNil1(slice []int) error {
+	if slice == nil { // header ptr is checked whether nil or not
+		return errors.New("nil slice")
+	}
+	return nil
+}
+
+func CheckNil2(slice *[]int) error {
+	if slice == nil { // it does not check the header pointer, it checks the slice itself
+		return errors.New("nil slice")
+	}
+
+	if *slice == nil { // header pointer
+		return errors.New("nil slice")
+	}
+	return nil
+}
+
+func SqAndAddElems(slice *[]int, nums ...int) error {
+	if *slice == nil {
+		return errors.New("nil slice")
+	}
+
 	*slice = append(*slice, nums...)
 	for i, v := range *slice {
 		(*slice)[i] = v * v
+		//(*slice)[i] = v * v
 	}
+	return nil
 }
 
 func Incr(n int) {
