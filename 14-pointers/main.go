@@ -41,6 +41,7 @@ func main() {
 	fmt.Println("Size of ptr6", unsafe.Sizeof(ptr6))
 
 	arr1 := [...]int{10, 11, 12, 13, 14, 15}
+
 	//var ptr7 *int = &arr1[0]
 
 	//3434343453
@@ -55,6 +56,13 @@ func main() {
 		v := (*int)(unsafe.Pointer(uintptr1))
 		println(*v)
 	}
+
+	// fmt.Println("Working with any pointer")
+	// var any1 any = 100
+	// anyptr := uintptr(unsafe.Pointer(&any1))
+	// v1 := (*[6]int)(unsafe.Pointer(anyptr))
+	// (*v1)[0]
+
 }
 
 func Incr(n int) {
