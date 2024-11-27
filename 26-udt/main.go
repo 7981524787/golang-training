@@ -81,3 +81,6 @@ func (m mymap) GetValues() ([]any, error) {
 	}
 	return values, nil
 }
+
+// print map
+// Key:-> key Value-> value
