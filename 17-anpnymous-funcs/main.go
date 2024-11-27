@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+var func1 func(int, int) int = add
+
 func main() {
 	map1 := make(map[string]any, 10)
 	map1["F1-Add"] = add
@@ -78,6 +80,8 @@ func main() {
 	r1 := f1()
 	fmt.Println("Result of a function:", r1)
 
+	var f5 func(int, int) int
+	r2 := calc3(100, 200, f5)
 	// var f2 func()
 	// var f3 func(int) int
 	// var f4 func(int, int) (int, int, int, error)
@@ -100,6 +104,16 @@ func sq(n int) int {
 }
 
 func calc(a, b int, f func(int, int) int) int {
+	return f(a, b)
+}
+
+func calc3(a, b int, f func(int, int) int) int {
+	if f == nil {
+		//f = func1
+		f = func(i1, i2 int) int {
+			return i1 + i2
+		}
+	}
 	return f(a, b)
 }
 
